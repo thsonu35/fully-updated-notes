@@ -78,7 +78,7 @@ const Home = () => {
   };
 
   const handleEnterKeyPress = (event) => {
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && textareaValue.trim() !== "") {
       event.preventDefault();
       addNoteWithTimeDate(textareaValue);
       setTextareaValue("");

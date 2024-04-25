@@ -20,6 +20,7 @@
       text-align: center;
       padding: 3rem ;
       h1 {
+        
         font-size: 3rem;
         font-weight: 700;
         @include md {
@@ -174,7 +175,7 @@
         align-items: center;
         gap: 20px;
         padding-left: 10px;
-        background-color: #e8e8e8;
+        background-color: rgba(0, 31, 139, 1);
         height: 10vh;
         p {
           font-size: 22px;
