@@ -118,8 +118,10 @@ const Home = () => {
   };
 
   const handleEnterImageClick = () => {
-    addNoteWithTimeDate(textareaValue);
-    setTextareaValue("");
+    if (textareaValue.trim() !== "") {
+      addNoteWithTimeDate(textareaValue);
+      setTextareaValue("");
+    }
   };
 
   return (
@@ -135,13 +137,15 @@ const Home = () => {
           {showModal && (
             <Modal closeModal={closeModal} createGroup={createGroup} />
           )}
-          <div className="notes">
+          <div className="notes scrollableContainer">
             {groups.map((note, index) => (
               <div
                 className="notes-details"
                 key={index}
                 style={{
                   backgroundColor: note.name === selectedNoteName ? "#F7ECDC" : "transparent",
+                  borderRadius: "20px"
+
                 }}
               >
                 <div
