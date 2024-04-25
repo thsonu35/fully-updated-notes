@@ -25,7 +25,7 @@ const Home = () => {
   const closeModal = () => setShowModal(false);
 
   const createGroup = (notesName, selectedColor) => {
-    const notesIcon = notesName.substring(0, 2).toUpperCase();
+    const notesIcon = generateNoteIcon(notesName);
     const newGroup = {
       name: notesName,
       icon: notesIcon,
@@ -35,6 +35,20 @@ const Home = () => {
 
     localStorage.setItem("groups", JSON.stringify([...groups, newGroup]));
   };
+
+  const generateNoteIcon = (noteName) => {
+    if (!noteName) return '';
+  
+    const words = noteName.trim().split(/\s+/); 
+    if (words.length === 1) {
+      return words[0].charAt(0).toUpperCase();
+    }
+  
+    const firstWord = words[0];
+    const lastWord = words[words.length - 1];
+    return `${firstWord.charAt(0).toUpperCase()}${lastWord.charAt(0).toUpperCase()}`;
+  };
+
 
   const handleNoteName = (nameOfNote) => {
     setSelectedNoteName((prevSelectedNoteName) =>
@@ -121,7 +135,7 @@ const Home = () => {
           {showModal && (
             <Modal closeModal={closeModal} createGroup={createGroup} />
           )}
-          <div className="notes scrollableContainer">
+          <div className="notes">
             {groups.map((note, index) => (
               <div
                 className="notes-details"
@@ -167,12 +181,20 @@ const Home = () => {
                         <div className="notes-written">
                           {selectedNotes.map((note, index) => (
                             <div key={index} className="notes-col">
-                              <div className="time-date">
-                                <p>{note.time}</p>
-                                <p>{note.date}</p>
-                              </div>
                               <div className="desc">
                                 <p>{note.text}</p>
+                              </div>
+
+
+                              <div className="time-date">
+                               
+                                <p>{note.date}</p>
+                                
+                        <span className="dot"></span>
+                              <p>{note.time}</p>
+                                
+                              
+                      
                               </div>
                             </div>
                           ))}
@@ -183,6 +205,7 @@ const Home = () => {
                             value={textareaValue}
                             onChange={handleTextareaChange}
                             onKeyDown={handleEnterKeyPress}
+                            
                           ></textarea>
                           <img
                             src={enter}

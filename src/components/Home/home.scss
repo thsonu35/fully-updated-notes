@@ -215,25 +215,33 @@
         overflow-y: scroll;
         .notes-col {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
           align-items: flex-start;
-          padding: 15px 20px 10px 20px;
-          gap: 25px;
-          @include md {
-            justify-content: center;
-            gap: 0;
-            padding: 10px 40px 10px 40px;
-          }
+          box-shadow: 5px 10px 10px rgba($color: #000000, $alpha: 0.14);
+          background-color: white;
+          margin:20px 30px;
+          padding: 20px 30px;
+
           .time-date {
-            width: 30%;
+            width: 100%;
+            display: flex;
+            justify-content:flex-end ;
+           align-items: center;
+            padding: 10px 0;
             p {
               font-size: 16px;
               font-weight: 600;
               color: #353535;
             }
+            .dot{
+              border: 4px solid black;
+              border-radius: 50%;
+              margin: 0 10px;
+            }
+       
           }
           .desc {
-            width: 65%;
+            width: 100%;
             p {
               font-size: 16px;
               color: #353535;
@@ -267,6 +275,7 @@
           font-size: 18px;
           border: none;
           outline: none;
+          resize: none;
           @include md {
             width: 95%;
           }
