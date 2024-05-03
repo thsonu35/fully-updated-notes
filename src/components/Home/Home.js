@@ -137,13 +137,13 @@ const Home = () => {
           {showModal && (
             <Modal closeModal={closeModal} createGroup={createGroup} />
           )}
-          <div className="notes scrollableContainer">
+          <div className="notes  scrollableContainer">
             {groups.map((note, index) => (
               <div
                 className="notes-details"
                 key={index}
                 style={{
-                  backgroundColor: note.name === selectedNoteName ? "#F7ECDC" : "transparent",
+                  backgroundColor: note.name === selectedNoteName ? "rgba(218, 229, 245, 1)" : "transparent",
                   borderRadius: "20px"
 
                 }}

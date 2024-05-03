@@ -57,8 +57,9 @@
     }
     .notes {
       max-width: 100%;
-      max-height: 85vh;
+      max-height: 87vh;
       overflow-y: scroll; 
+      scrollbar-width: none;
       .notes-details {
         display: flex;
         justify-content: flex-start;
@@ -67,7 +68,7 @@
         gap: 2rem;
         
         .scrollableContainer {
-          max-height: 80vh;
+          max-height: 8vh;
           overflow-y: scroll; 
       
       }
@@ -107,7 +108,8 @@
   .content {
     display: none;
     @include md {
-      background-color: #f7ecdc;
+      background-color: rgba(218, 229, 245, 1);
+      ;
       width: 100%;
       height: 100vh;
       display: flex;
@@ -155,12 +157,14 @@
       }
     }
   }
-  .notes-box {
-    display: block;
-    width: 100%;
-    height: 100vh;
+  
+    .notes-box {
+      display: block;
+      width: 100%;
+      height: 95vh;
+      overflow: hidden;
     @include md {
-      background-color: #f7ecdc;
+      background-color: rgba(218, 229, 245, 1);
       width: 100%;
       height: 100vh;
     }
@@ -204,12 +208,11 @@
           }
         }
       }
-      .notes-written {
-        width: 100%;
-        height: calc(100vh - 8vh);
-        background: #f7ecdc;
-        overflow: hidden;
-        overflow-y: scroll;
+     .notes-written {
+      width: 100%;
+      height: calc(100vh - 6vh);
+      background: rgba(218, 229, 245, 1);
+      overflow-y: auto; 
         .notes-col {
           padding: 2rem;
           margin: 2rem;
@@ -249,13 +252,13 @@
       }
       .footer {
         background-color: blue;
-        height: 18vh;
+        height: 30vh;
         width: 100%;
         position: absolute;
-        bottom: 0;
+        bottom: 4%;
         @include md {
           width: 100%;
-          height: 23vh;
+          height: 27vh;
         }
         textarea {
           width: 90%;
@@ -272,6 +275,7 @@
           resize: none;
           @include md {
             width: 95%;
+            height: 80%;
           }
         }
         img {
